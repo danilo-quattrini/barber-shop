@@ -8,15 +8,15 @@
                 Our platform helps you build, test, and deliver faster — so you can focus on what matters.
             </p>
             <div class="flex items-center gap-4 mt-8">
-                <x-button.orange class="flex items-center">
+                <x-button color="orange" class="flex items-center">
                     Get started
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.166 10h11.667m0 0L9.999 4.165m5.834 5.833-5.834 5.834" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                </x-button.orange>
-                <button class="border border-slate-600 active:scale-95 hover:bg-white/10 transition text-slate-600 rounded-lg px-8 h-11">
+                </x-button>
+                <x-button color="white">
                     Pricing
-                </button>
+                </x-button>
             </div>
         </main>
     </section>
