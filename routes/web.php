@@ -1,13 +1,12 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
 
-Route::get('sign-up', function (){
-    return view('sign-up');
-});
+Route::get('sign-up', [UserController::class, 'index']);
 
-Route::get('appointments', function (){
-    return view('appointment.index');
-});
+Route::patch('sing-up', [UserController::class, 'create']);
+
+Route::view('appointments', 'appointment.index');
