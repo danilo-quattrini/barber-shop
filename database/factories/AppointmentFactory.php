@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,9 @@ class AppointmentFactory extends Factory
     public function definition(): array
     {
         return [
+            'title' => fake()->sentence(2),
+            'body' => fake()->text,
+            'user_id' => User::factory(),
             'appointment_date' => fake()->date
         ];
     }
