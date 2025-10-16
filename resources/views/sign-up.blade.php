@@ -17,24 +17,35 @@
                     </div>
                     <div class="m-7">
 
-                        <form action="/" method="POST">
+                        <form action="/sing-up" method="POST">
+                            @csrf
+                            @method('PATCH')
                             <div class="mb-6">
                                 <label for="name" class="block mb-2 text-sm text-gray-600 ">Name</label>
-                                <input type="text" name="name" id="name" placeholder="Jhon" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                                <input type="text" name="name" id="name" placeholder="Jhon" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-100 focus:border-orange-300" required/>
                             </div>
+
                             <div class="mb-6">
                                 <label for="email" class="block mb-2 text-sm text-gray-600 ">Email Address</label>
-                                <input type="email" name="email" id="email" placeholder="you@company.com" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                                <input type="email" name="email" id="email" placeholder="you@company.com" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-100 focus:border-orange-300" required/>
                             </div>
+
                             <div class="mb-6">
                                 <div class="flex justify-between mb-2">
                                     <label for="password" class="text-sm text-gray-600">Password</label>
-                                    <a href="/" class="text-sm text-gray-400 focus:outline-none focus:text-indigo-500 hover:text-indigo-500">Forgot password?</a>
+                                    <a href="/" class="text-sm text-gray-400 focus:outline-none focus:text-orange-500 hover:text-orange-500">Forgot password?</a>
                                 </div>
-                                <input type="password" name="password" id="password" placeholder="Your Password" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                                <input type="password" name="password" id="password" placeholder="Your Password" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-orange-100 focus:border-orange-300" required/>
                             </div>
-                            <div class="mb-6">
-                                <x-button href="/" >Sign in</x-button>
+
+                            {{--Error handling div--}}
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                             </ul>
+                            <div class="flex items-center justify-center mb-6">
+                                <x-button type="submit"> Sign Up </x-button>
                             </div>
                             <p class="text-sm text-center text-gray-400">Already your customer? <a href="/" class="text-orange-400 focus:outline-none focus:underline focus:text-orange-500">Sign in</a>.</p>
                         </form>
