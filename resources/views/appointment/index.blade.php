@@ -2,7 +2,7 @@
     {{--TODO: Center the cards generated from the appointments table --}}
     <h1 class="text-5xl mb-3 font-bold">Appointments</h1>
     <hr class="w-xl border border-b-slate-500">
-    @foreach}($appointments as $appointment)
+    @foreach($appointments as $appointment)
         <div class="flex items-center max-w-3xl my-5 p-6 bg-white border border-slate-500 rounded-lg shadow-sm">
             <div>
                 <a href="#">
