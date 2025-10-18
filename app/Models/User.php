@@ -50,6 +50,6 @@ class User extends Authenticatable
 
     public function appointments(): HasMany
     {
-        return $this->hasMany(Appointment::class, 'id');
+        return $this->hasMany(Appointment::class, 'user_id');
     }
 }
