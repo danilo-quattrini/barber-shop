@@ -11,8 +11,8 @@ Route::get('sign-up', [UserController::class, 'index']);
 
 Route::patch('sing-up', [UserController::class, 'create']);
 
-Route::get('appointments',[AppointmentController::class, 'index'])
-    ->name('appointment');
-
-Route::get('appointments/{appointment}',[AppointmentController::class, 'show'])
-    ->name('appointment');
+Route::controller(AppointmentController::class)->group(function (){
+    Route::get('appointments', 'index');
+    Route::get('appointments/{appointment}','show');
+    Route::delete('/appointments/{appointment}', 'destroy');
+});
