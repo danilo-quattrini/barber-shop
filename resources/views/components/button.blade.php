@@ -7,7 +7,8 @@
 @php
     $baseClasses = 'inline-flex items-center justify-center font-sm rounded-md transition focus:outline-none focus:ring-2 focus:ring-offset-2';
     $colors = [
-        'orange' => 'bg-orange-500 text-white hover:bg-orange-600 focus:ring-orange-400',
+        'orange' => 'bg-orange-500 text-white border border-orange-500 hover:bg-orange-600 hover:border-orange-600  focus:ring-orange-600',
+        'red' => 'bg-red-500 text-white border border-red-500 hover:bg-red-600 hover:border-red-600 focus:ring-red-400',
         'gray' => 'bg-gray-200 text-slate-800 hover:bg-slate-500 focus:ring-slate-400',
         'white' => 'bg-white text-slate-700 border border-slate-500 hover:bg-slate-100 focus:ring-slate-400',
     ];

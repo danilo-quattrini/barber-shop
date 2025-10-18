@@ -54,15 +54,15 @@
                     </dd>
                 </div>
                 <div class="flex items-center justify-between bg-white py-5 px-8">
-                       <!--- View Button -->
+                       <!--- Delete Button -->
                        <div class="float-start">
-                           <span class="ml-3 hidden sm:block">
-                              <x-button type="button" color="white">
-                                <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="mr-1.5 -ml-0.5 size-5 text-slate-700">
-                                  <path d="M12.232 4.232a2.5 2.5 0 0 1 3.536 3.536l-1.225 1.224a.75.75 0 0 0 1.061 1.06l1.224-1.224a4 4 0 0 0-5.656-5.656l-3 3a4 4 0 0 0 .225 5.865.75.75 0 0 0 .977-1.138 2.5 2.5 0 0 1-.142-3.667l3-3Z" />
-                                  <path d="M11.603 7.963a.75.75 0 0 0-.977 1.138 2.5 2.5 0 0 1 .142 3.667l-3 3a2.5 2.5 0 0 1-3.536-3.536l1.225-1.224a.75.75 0 0 0-1.061-1.06l-1.224 1.224a4 4 0 1 0 5.656 5.656l3-3a4 4 0 0 0-.225-5.865Z" />
+                           <span class="hidden sm:block">
+                              <x-button form="delete-appointment" type="submit" color="red">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" data-slot="icon" viewBox="0 0 24 24" class="mr-1.5 ml-0.5 size-5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6">
+                                    </path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line>
+                                    <line x1="14" x2="14" y1="11" y2="17"></line>
                                 </svg>
-                                  {{--TODO: new route to see the appointment page with their info--}}
                                 Delete
                               </x-button>
                             </span>
@@ -71,7 +71,7 @@
                        <!--- Edit Button -->
                         <div class="float-end">
                            <x-button color="white" type="button">
-                               <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="mr-1.5 -ml-0.5 size-5 text-slate-700">
+                               <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="mr-1.5 ml-0.5 size-5 text-slate-700">
                                    <path d="m2.695 14.762-1.262 3.155a.5.5 0 0 0 .65.65l3.155-1.262a4 4 0 0 0 1.343-.886L17.5 5.501a2.121 2.121 0 0 0-3-3L3.58 13.419a4 4 0 0 0-.885 1.343Z" />
                                </svg>
                                {{--TODO: new route for the edit appointment page--}}
@@ -82,4 +82,10 @@
             </dl>
         </div>
     </div>
+
+    <!-- Form to delete the appointment from the DB-->
+    <form id="delete-appointment" method="POST" action="/appointments/{{$appointment->id}}">
+        @csrf
+        @method('DELETE')
+    </form>
 </x-layout>
