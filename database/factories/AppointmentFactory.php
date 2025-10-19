@@ -21,7 +21,7 @@ class AppointmentFactory extends Factory
             'title' => fake()->sentence(2),
             'body' => fake()->text,
             'user_id' => User::factory(),
-            'appointment_date' => fake()->date
+            'appointment_date' => fake()->dateTimeBetween('now', '+2 months'),
         ];
     }
 }
