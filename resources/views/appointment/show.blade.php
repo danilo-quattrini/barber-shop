@@ -70,11 +70,10 @@
 
                        <!--- Edit Button -->
                         <div class="float-end">
-                           <x-button color="white" type="button">
+                           <x-button color="white" href="/appointments/{{$appointment->id}}/edit" >
                                <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="mr-1.5 ml-0.5 size-5 text-slate-700">
                                    <path d="m2.695 14.762-1.262 3.155a.5.5 0 0 0 .65.65l3.155-1.262a4 4 0 0 0 1.343-.886L17.5 5.501a2.121 2.121 0 0 0-3-3L3.58 13.419a4 4 0 0 0-.885 1.343Z" />
                                </svg>
-                               {{--TODO: new route for the edit appointment page--}}
                                Edit
                            </x-button>
                         </div>
