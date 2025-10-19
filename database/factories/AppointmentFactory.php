@@ -18,10 +18,12 @@ class AppointmentFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(2),
-            'body' => fake()->text,
             'user_id' => User::factory(),
             'appointment_date' => fake()->dateTimeBetween('now', '+2 months'),
+            'appointment_time' => fake()->time('H:i'),
+            'price' => fake()->randomFloat(2, 10, 100),
+            'status' => fake()->randomElement(['pending', 'confirmed', 'cancelled']),
+            'notes' => fake()->sentence
         ];
     }
 }

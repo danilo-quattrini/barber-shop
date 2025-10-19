@@ -15,9 +15,11 @@ return new class extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
-            $table->string('title');
-            $table->string('body');
+            $table->string('notes');
             $table->date('appointment_date');
+            $table->time('appointment_time');
+            $table->double('price');
+            $table->string('status');
         });
     }
 

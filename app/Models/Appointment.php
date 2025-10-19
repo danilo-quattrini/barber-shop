@@ -10,7 +10,7 @@ class Appointment extends Model
 {
     /** @use HasFactory<\Database\Factories\AppointmentFactory> */
     use HasFactory;
-    protected $fillable = ['title','body', 'date'];
+    protected $fillable = ['appointment_date', 'appointment_time', 'price', 'status', 'notes'];
     public $timestamps = false;
 
     public function user(): BelongsTo
