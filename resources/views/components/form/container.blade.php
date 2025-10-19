@@ -11,9 +11,9 @@
     </div>
 </div>
 @else
-<div {{$attributes->merge(['class' => 'max-w-xl bg-white'])}}>
+<div {{$attributes->merge(['class' => 'max-w-3xl bg-white'])}}>
     <div class="container mx-auto">
-        <div class="max-w-xl mx-auto border rounded-md border-slate-500">
+        <div class="max-w-3xl mx-auto border rounded-md border-slate-500">
             <div class="p-9">
                 {{$slot}}
             </div>

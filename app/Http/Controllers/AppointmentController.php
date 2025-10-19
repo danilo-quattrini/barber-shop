@@ -35,9 +35,11 @@ class AppointmentController extends Controller
     public function update(Appointment $appointment, Request $request): View
     {
         $validated_appointment = $request->validate([
-            'title' => 'min:5|max:20',
-            'body' => 'min:10|max:200',
-            'appointment_date' => ['required', Rule::date()->after(today())]
+            'appointment_date' => ['date', 'after_or_equal:today'],
+            'appointment_time' => ['date_format:H:i'],
+            'price' => ['required', 'numeric', 'min:10', 'max:500'],
+            'status' => ['required', Rule::in(['pending', 'confirmed', 'cancelled'])],
+            'notes' => ['nullable', 'string', 'max:255']
         ]);
 
         $appointment->update($validated_appointment);

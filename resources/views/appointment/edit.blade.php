@@ -6,22 +6,41 @@
         <form action="/appointments/{{$appointment->id}}/edit" method="POST">
             @csrf
             @method('PATCH')
-            <div class="mb-6">
-                <x-form.label for="title" >Title</x-form.label>
-                <x-form.input type="text" name="title" id="title" value="{{$appointment->title}}" />
-                <x-form.error name="title"></x-form.error>
-            </div>
 
             <div class="mb-6">
-                <x-form.label for="body">Body</x-form.label>
-                <x-form.input type="text" name="body" id="body" value="{{$appointment->body}}"  required/>
-                <x-form.error name="body"></x-form.error>
+                <x-form.label for="status">Status</x-form.label>
+                <x-form.select
+                    name="status"
+                    id="status"
+                    :options="['pending' => 'Pending', 'confirmed' => 'Confirmed', 'cancelled' => 'Cancelled']"
+                    :selected="$appointment->status"
+                />
+                <x-form.error name="status"></x-form.error>
             </div>
 
             <div class="mb-6">
                 <x-form.label for="date"> Date</x-form.label>
-                <x-form.input type="date" name="date" id="date" value="{{$appointment->appointment_date}}" required/>
+                <x-form.input type="date" name="date" id="date" value="{{$appointment->appointment_date}}"/>
                 <x-form.error name="date"></x-form.error>
+            </div>
+
+            <div class="mb-6">
+                <x-form.label for="time"> Time</x-form.label>
+                <x-form.input type="time" name="time" id="time" value="{{$appointment->appointment_time}}"/>
+                <x-form.error name="time"></x-form.error>
+            </div>
+
+            <div class="mb-6">
+                <x-form.label for="price"> Price</x-form.label>
+                <x-form.input type="price" name="price" id="price" value="{{$appointment->price}}"/>
+                <x-form.error name="price"></x-form.error>
+            </div>
+
+
+            <div class="mb-6">
+                <x-form.label for="notes">Notes</x-form.label>
+                <x-form.input type="text" name="notes" id="notes" value="{{$appointment->notes}}"/>
+                <x-form.error name="notes"></x-form.error>
             </div>
 
             <div class="flex items-center justify-between">
