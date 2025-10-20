@@ -18,12 +18,22 @@
     </div>
 
     <div class="hidden md:block space-x-3">
-        <x-button color="orange" href="/sign-up">
-            Sign Up
-        </x-button>
-        <x-button color='white'>
-            Login
-        </x-button>
+        @guest
+            <x-button color="orange" href="/sign-up">
+                Sign Up
+            </x-button>
+            <x-button color='white'>
+                Login
+            </x-button>
+        @endguest
+        @auth
+            <form method="POST" action="/log-out">
+                @csrf
+                <x-button type="submit" color='white'>
+                    Log Out
+                </x-button>
+            </form>
+        @endauth
     </div>
 
     {{--TODO: Drop down menù for mobile devices to implement--}}
