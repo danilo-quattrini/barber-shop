@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\UserController;
-use App\Models\Appointment;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
