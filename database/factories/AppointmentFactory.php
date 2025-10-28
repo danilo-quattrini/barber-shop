@@ -20,8 +20,8 @@ class AppointmentFactory extends Factory
         return [
             'user_id' => User::factory(),
             'appointment_date' => fake()->dateTimeBetween('now', '+2 months'),
-            'appointment_time' => fake()->time('H:i'),
-            'price' => fake()->randomFloat(2, 10, 100),
+            'appointment_time' => fake()->numberBetween(60, 120),
+            'service_id' => 2,
             'status' => fake()->randomElement(['pending', 'confirmed', 'cancelled']),
             'notes' => fake()->sentence
         ];

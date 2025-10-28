@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,13 +14,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('appointments', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(User::class);
             $table->string('notes');
             $table->date('appointment_date');
-            $table->time('appointment_time');
-            $table->double('price');
+            $table->integer('appointment_time');
             $table->string('status');
+            $table->timestamps();
+            $table->id();
+            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(Service::class);
         });
     }
 

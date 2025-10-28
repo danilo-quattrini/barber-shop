@@ -1,16 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <title>Home</title>
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <title>{{$title}}</title>
     </head>
-    <body>
-    <x-nav-link></x-nav-link>
+    <body class="h-full">
+    <x-nav.index></x-nav.index>
     <x-mobile-nav-links></x-mobile-nav-links>
-        <div class="mx-20 p-5 border-gray-400 rounded-xl">
-            {{$slot}}
-        </div>
+        {{$slot}}
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     </body>
+    <x-footer></x-footer>
 </html>

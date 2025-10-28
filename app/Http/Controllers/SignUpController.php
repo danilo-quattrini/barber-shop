@@ -7,17 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
+use Spatie\Permission\Models\Role;
 
 class SignUpController extends Controller
 {
     public function index(): View
     {
-        return view('auth.sign-up');
+        $roles = Role::pluck('name', 'id')->toArray();
+        return view('auth.sign-up', compact('roles'));
     }
     public function create(Request $request)
     {
-            //TODO: authentication part to check if the user it's in the db or not
-
             // validation
             $validated = $request->validate([
                 'first_name' => ['required', 'string', 'min:2', 'max:50'],
@@ -34,13 +34,16 @@ class SignUpController extends Controller
                         ->symbols()
                         ->uncompromised(), // Checks password breaches
                 ],
-                'role' => ['required', 'in:user,admin,barber'], // adapt to your app roles
             ]);
+            $validated['role_id'] = $request->get('role');
 
-            // add the user inside the db
-           $authenticated_user =  User::create($validated);
+            $authenticated_user = User::create($validated);
 
-           // authenticate the user inside the system
+            $role = Role::find($validated['role_id']);
+
+            $authenticated_user->assignRole($role);
+
+            // authenticate the user inside the system
             Auth::login($authenticated_user);
 
             return redirect('/');

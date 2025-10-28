@@ -1,21 +1,21 @@
 <x-layout>
-    <section class="flex flex-col items-center text-sm bg-[url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/bg-with-grid.png')] bg-cover bg-center bg-no-repeat">
-        <main class="flex flex-col items-center max-md:px-2">
-            <h1 class="text-center mt-32 text-5xl leading-[68px] md:text-6xl md:leading-[80px] font-semibold max-w-4xl text-slate-900">
-                The fastest way to go from idea to impact.
+    <x-slot:title>Home</x-slot:title>
+    <section class="relative flex flex-col justify-center items-center min-h-screen w-full bg-cover bg-center bg-no-repeat bg-[url('../../public/barber-shop-example-bg-image.jpg')]">
+        <div class="absolute inset-0 bg-black/60"></div>
+        <main class="relative z-10 flex flex-col justify-center items-center text-center max-md:px-2">
+            <h2 class="text-base mt-12 font-light text-orange-500 uppercase">Home</h2>
+            <h1 class="text-white text-center mt-2 text-8xl leading-[68px] md:text-6xl md:leading-[80px] font-bold max-w-5xl uppercase">
+                Barber Shop
             </h1>
-            <p class="text-center text-base text-slate-700 max-w-lg mt-2">
-                Our platform helps you build, test, and deliver faster — so you can focus on what matters.
+            <p class="text-white text-center text-base max-w-lg mt-2">
+                The best barber shop for men since the first '90
             </p>
-            <div class="flex items-center gap-4 mt-8">
-                <x-button color="orange" class="flex items-center">
-                    Get started
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.166 10h11.667m0 0L9.999 4.165m5.834 5.833-5.834 5.834" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+            <div class="flex justify-center items-center gap-4 mt-8">
+                <x-button color="white" href="/services">
+                    Services
                 </x-button>
-                <x-button color="white">
-                    Pricing
+                <x-button href="/appointments" color="orange" class="flex items-center">
+                    Book
                 </x-button>
             </div>
         </main>

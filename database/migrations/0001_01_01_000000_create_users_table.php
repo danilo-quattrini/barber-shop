@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Spatie\Permission\Models\Role;
 
 return new class extends Migration
 {
@@ -18,8 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             // TODO: create phone model
             $table->string('phone');
-            // TODO: create role model
-            $table->string('role');
+            $table->foreignIdFor(Role::class);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -1,15 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Home</title>
-</head>
-<body>
+<x-auth-layout>
+    <x-slot:title>Sing Up</x-slot:title>
     <x-form.container type='auth'>
             <div class="flex items-center justify-center">
-                <img src="{{asset('barber-shop-logo.svg')}}" alt="barber shop logo" class="w-xl m-0"/>
+                <img src="{{asset('barber-shop-logo.svg')}}" alt="barber shop logo" class="w-3/7 m-0"/>
             </div>
             <div class="text-center">
                 <h1 class="my-3 text-3xl font-semibold text-slate-700">Sign Up</h1>
@@ -38,9 +31,9 @@
                         <x-form.select
                             name="role"
                             id="role"
-                            :options="['admin' => 'Admin', 'guest' => 'Guest']"
+                            :options="$roles"
                         />
-                        <x-form.error name="last_name"></x-form.error>
+                        <x-form.error name="role"></x-form.error>
                     </div>
 
                     <!-- Email -->
@@ -69,12 +62,16 @@
                         <x-form.input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" />
                         <x-form.error name="password_confirmation"></x-form.error>
                     </div>
-
+                    <ul>
+                        @foreach($errors as $error)
+                                <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
                     <div class="flex items-center justify-center mb-6">
                         <x-button type="submit"> Sign Up </x-button>
                     </div>
-                    <p class="text-sm text-center text-slate-400">Already your customer? <a href="/" class="text-orange-400 focus:outline-none focus:underline focus:text-orange-500">Sign in</a>.</p>
+                    <p class="text-sm text-center text-slate-400">Already your customer? <a href="{{ route('login') }}" class="text-orange-400 focus:outline-none focus:underline focus:text-orange-500">Sign in</a>.</p>
                 </form>
             </div>
     </x-form.container>
-</body>
+</x-auth-layout>
