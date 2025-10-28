@@ -2,7 +2,8 @@
 
 A full-featured web application built with **Laravel** for managing a local barber shop.  
 This project allows clients to book appointments, view available services, and manage their bookings, while admins can manage users, appointments, and pricing.
-<br>
+
+
 ![home page](public/landing-page.png)
 ---
 
