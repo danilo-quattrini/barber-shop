@@ -22,10 +22,10 @@ This project allows clients to book appointments, view available services, and m
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Laravel 11 (PHP 8+)
-- **Frontend:** Blade + Tailwind CSS + Alpine.js
-- **Database:** MySQL or PostgreSQL
-- **Authentication:** Laravel Breeze / Jetstream
+- **Backend:** Laravel 12 (PHP 8+)
+- **Frontend:** Blade + Tailwind CSS
+- **Database:** MySQL
+- **Authentication:** Laravel Breeze
 - **Version Control:** Git & GitHub
 
 ---
@@ -34,7 +34,7 @@ This project allows clients to book appointments, view available services, and m
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/barber-shop.git
+git clone https://github.com/danilo-quattrini/barber-shop.git
 
 # Navigate into the project directory
 cd barber-shop
